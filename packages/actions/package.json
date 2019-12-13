@@ -1,0 +1,61 @@
+{
+  "name": "@rdfdev/actions",
+  "version": "0.0.0",
+  "description": "Work with linked delta actions quick and easy",
+  "scripts": {
+    "build": "pika build"
+  },
+  "author": "Fletcher91 <thom@freedom.nl>",
+  "license": "MIT",
+  "repository": "https://github.com/ontola/rdfdev",
+  "keywords": [
+    "rdf",
+    "rest",
+    "linked data",
+    "linked delta",
+    "open",
+    "linked",
+    "data",
+    "deleta",
+    "semantic",
+    "web",
+    "link",
+    "link-lib",
+    "link-redux",
+    "ontology",
+    "ontologies",
+    "triples",
+    "quads",
+    "n-triples",
+    "turtle",
+    "json-ld",
+    "solid"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ]
+    ]
+  },
+  "peerDependencies": {
+    "@ontologies/core": "*"
+  },
+  "devDependencies": {
+    "@ontologies/core": "2.0.0-2",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.8.1",
+    "@pika/plugin-build-web": "^0.8.1",
+    "@pika/plugin-ts-standard-pkg": "^0.8.1",
+    "typescript": "^3.7.3"
+  }
+}

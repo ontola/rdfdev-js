@@ -1,0 +1,17 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "build": "lerna run build",
+    "build:doc": "typedoc --excludeExternals --excludeNotExported --excludePrivate --excludeProtected --readme README.md && ./docs.sh",
+    "publish": "lerna publish from-package --contents pkg",
+    "postpublish": "gh-pages -d docs --dotfiles"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1",
+    "lerna": "^3.19.0",
+    "typedoc": "^0.15.4",
+    "typedoc-plugin-lerna-packages": "^0.2.2",
+    "typescript": "^3.7.3"
+  }
+}

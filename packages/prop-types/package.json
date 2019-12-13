@@ -1,0 +1,68 @@
+{
+  "name": "@rdfdev/prop-types",
+  "version": "0.0.0",
+  "description": "PropType definitions for RDF objects",
+  "scripts": {
+    "build": "pika build"
+  },
+  "author": "Fletcher91 <thom@freedom.nl>",
+  "license": "MIT",
+  "repository": "https://github.com/ontola/rdfdev",
+  "keywords": [
+    "react",
+    "prop-types",
+    "proptypes",
+    "prop",
+    "types",
+    "rdf",
+    "rest",
+    "linked data",
+    "linked delta",
+    "open",
+    "linked",
+    "data",
+    "deleta",
+    "semantic",
+    "web",
+    "link",
+    "link-lib",
+    "link-redux",
+    "ontology",
+    "ontologies",
+    "triples",
+    "quads",
+    "n-triples",
+    "turtle",
+    "json-ld",
+    "solid"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ]
+    ]
+  },
+  "peerDependencies": {
+    "@ontologies/core": "*",
+    "prop-types": "*"
+  },
+  "devDependencies": {
+    "@ontologies/core": "2.0.0-2",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.8.1",
+    "@pika/plugin-build-web": "^0.8.1",
+    "@pika/plugin-ts-standard-pkg": "^0.8.1",
+    "prop-types": "15.7.2",
+    "typescript": "^3.7.3"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "mode": "modules",
+  "target": "ES6",
+  "out": "docs",
+  "exclude": [
+    "**/node_modules/**",
+    "**/*.spec.ts"
+  ],
+  "name": "js.rdf.dev",
+  "excludePrivate": true,
+  "skipInternal": true
+}
