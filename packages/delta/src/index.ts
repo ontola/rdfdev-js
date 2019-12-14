@@ -1,34 +1,40 @@
-import rdfFactory from "@ontologies/core";
+import rdfFactory, { Node } from "@ontologies/core";
 import ld from "@ontologies/ld"
 
-export const addGraph = (graph) => ld.ns(graph === rdfFactory.defaultGraph() ? "add" : `add?graph=${encodeURIComponent(graph.value)}`);
-export const replaceGraph = (graph) => ld.ns(graph === rdfFactory.defaultGraph() ? "replace" : `replace?graph=${encodeURIComponent(graph.value)}`);
-export const sliceGraph = (graph) => ld.ns(graph === rdfFactory.defaultGraph() ? "slice" : `slice?graph=${encodeURIComponent(graph.value)}`);
-export const purgeGraph = (graph) => ld.ns(graph === rdfFactory.defaultGraph() ? "purge" : `purge?graph=${encodeURIComponent(graph.value)}`);
-export const removeGraph = (graph) => ld.ns(graph === rdfFactory.defaultGraph() ? "remove" : `remove?graph=${encodeURIComponent(graph.value)}`);
-export const supplantGraph = (graph) => ld.ns(graph === rdfFactory.defaultGraph() ? "supplant" : `supplant?graph=${encodeURIComponent(graph.value)}`);
+const buildGraph = (graphName: string) => (graph: Node) => ld.ns(graph === rdfFactory.defaultGraph()
+  ? graphName
+  : `${graphName}?graph=${encodeURIComponent(graph.value)}`);
+
+export const addGraph = buildGraph("add");
+export const replaceGraph = buildGraph("replace");
+export const sliceGraph = buildGraph("slice");
+export const purgeGraph = buildGraph("purge");
+export const removeGraph = buildGraph("remove");
+export const supplantGraph = buildGraph("supplant");
+
+const buildQuadCreator = (graphBuilder) => (s, p, o, g = rdfFactory.defaultGraph()) => rdfFactory.quad(s, p, o, graphBuilder(g));
 
 /**
  * Create a delta statement adding ({s}, {p}, {o}) to {g} or the default graph
  */
-export const add = (s, p, o, g = rdfFactory.defaultGraph()) => rdfFactory.quad(s, p, o, addGraph(g));
+export const add = buildQuadCreator(addGraph);
 /**
  * Create a delta statement replacing ({s}, {p}, {o}) to {g} or the default graph
  */
-export const replace = (s, p, o, g = rdfFactory.defaultGraph()) => rdfFactory.quad(s, p, o, replaceGraph(g));
+export const replace = buildQuadCreator(replaceGraph);
 /**
  * Create a delta statement slicing ({s}, {p}, {o}) to {g} or the default graph
  */
-export const slice = (s, p, o, g = rdfFactory.defaultGraph()) => rdfFactory.quad(s, p, o, sliceGraph(g));
+export const slice = buildQuadCreator(sliceGraph);
 /**
  * Create a delta statement purging ({s}, {p}, {o}) to {g} or the default graph
  */
-export const purge = (s, p, o, g = rdfFactory.defaultGraph()) => rdfFactory.quad(s, p, o, purgeGraph(g));
+export const purge = buildQuadCreator(purgeGraph);
 /**
  * Create a delta statement removing ({s}, {p}, {o}) to {g} or the default graph
  */
-export const remove = (s, p, o, g = rdfFactory.defaultGraph()) => rdfFactory.quad(s, p, o, removeGraph(g));
+export const remove = buildQuadCreator(removeGraph);
 /**
  * Create a delta statement supplanting ({s}, {p}, {o}) to {g} or the default graph
  */
-export const supplant = (s, p, o, g = rdfFactory.defaultGraph()) => rdfFactory.quad(s, p, o, supplantGraph(g));
+export const supplant = buildQuadCreator(supplantGraph);
