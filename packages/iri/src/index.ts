@@ -1,4 +1,4 @@
-import rdfFactory, { NamedNode } from "@ontologies/core";
+import rdfFactory, { isNamedNode, isTerm, NamedNode, SomeTerm } from "@ontologies/core";
 
 /**
  * Transforms the {iri} to match what a browser would fetch for that IRI.
@@ -75,6 +75,8 @@ export function parentDirStr(iri: string): string {
   const url = new URL(iri);
   const endIndex = url.pathname.endsWith("/") ? -2 : -1;
   url.pathname = url.pathname.split("/").slice(0, endIndex).join("/");
+  url.hash = "";
+  url.search = "";
 
   return url.toString();
 }
@@ -98,4 +100,22 @@ export function siteStr(iri: string): string {
  */
 export function site(iri: NamedNode): NamedNode {
   return rdfFactory.namedNode(siteStr(iri.value));
+}
+
+/**
+ * Get a term name for this {iri}.
+ * This guesses a term name using either the fragment or a path segment. Has no preconception of
+ * well-known ontologies.
+ */
+export function termStr(iri: string): string {
+  return iri.split(/[\/#]/).pop()!.split("?").shift() || "";
+}
+
+/**
+ * Get a term name for this {iri}.
+ * This guesses a term name using either the fragment or a path segment. Has no preconception of
+ * well-known ontologies.
+ */
+export function term(iri: NamedNode): string {
+  return termStr(iri.value);
 }
