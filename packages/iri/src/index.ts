@@ -1,4 +1,4 @@
-import rdfFactory, { isNamedNode, isTerm, NamedNode, SomeTerm } from "@ontologies/core";
+import rdfFactory, { NamedNode } from "@ontologies/core";
 
 /**
  * Transforms the {iri} to match what a browser would fetch for that IRI.
@@ -29,18 +29,16 @@ export function doc(iri: NamedNode): NamedNode {
  * @returns The filename with extension or an empty string if it has no filename.
  */
 export function filenameStr(iri: string, folder?: string): string {
-  if (typeof folder === "undefined") {
-    const url = new URL(iri);
-    folder = `${url.origin}${url.pathname.split("/").slice(0, -1).join("/")}`;
+  const fqIRI = new URL(iri, "http://example.com");
+  fqIRI.hash = "";
+  const absoluteIRI = fqIRI.toString().replace(originStr(fqIRI.toString()), "");
+  if (folder) {
+    folder = folder.replace(new URL(folder, "http://example.com").origin, "");
   }
-  let file = iri.replace(folder, "");
-  // There is some issue in redirection or parsing where paths without trailing slash will cause
-  // the embedded files to be root-relative IRI's.
-  if (file.includes("://")) {
-    file = iri.replace(siteStr(folder), "");
-  }
+  const replace = folder || `${new URL(absoluteIRI, "http://example.com").pathname.split("/").slice(0, -1).join("/")}/`
+  const file = absoluteIRI.replace(replace,"");
 
-  return file;
+  return file.includes("://") ? file.replace(siteStr(file), "") : file;
 }
 
 /**

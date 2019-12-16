@@ -2,3 +2,4 @@
 /packages/*/pkg
 node_modules
 docs
+coverage

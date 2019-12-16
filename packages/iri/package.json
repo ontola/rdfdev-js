@@ -3,7 +3,8 @@
   "version": "1.0.0-alpha.2",
   "description": "Toolkit to make working with IRI's quick and easy",
   "scripts": {
-    "build": "pika build"
+    "build": "pika build",
+    "test": "jest --coverage"
   },
   "author": "Fletcher91 <thom@freedom.nl>",
   "license": "MIT",
@@ -61,6 +62,19 @@
     "@pika/plugin-build-node": "^0.8.1",
     "@pika/plugin-build-web": "^0.8.1",
     "@pika/plugin-ts-standard-pkg": "^0.8.1",
+    "@types/jest": "^24.0.23",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "transform": {
+      "\\.ts$": "ts-jest"
+    }
   }
 }
