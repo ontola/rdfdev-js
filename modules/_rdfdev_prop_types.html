@@ -90,10 +90,17 @@ MyComponent.propTypes = {
   <span class="hljs-comment">// A link to the comments, either an IRI (e.g. https) or blank (temporary document-scoped link)</span>
   comments: RDFTypes.nodeType,
 };</code></pre>
-					<a href="#see-also" id="see-also" style="color: inherit; text-decoration: none;">
-						<h2>See also</h2>
+					<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+						<h2>Getting started</h2>
 					</a>
-					<p>See the <a href="https://js.rdf.dev">js.rdf.dev documentation</a></p>
+					<p>Just install the package and its peer dependencies.</p>
+					<p><code>npm i @rdfdev/prop-types @ontologies/core prop-types</code></p>
+					<p><code>yarn add @rdfdev/prop-types @ontologies/core prop-types</code></p>
+					<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+						<h2>Documentation</h2>
+					</a>
+					<p>See the <a href="https://js.rdf.dev/prop-types">js.rdf.dev/prop-types documentation</a></p>
+					<p>See the complete <a href="https://js.rdf.dev">js.rdf.dev documentation</a></p>
 					<a href="#need-help-with-linked-data" id="need-help-with-linked-data" style="color: inherit; text-decoration: none;">
 						<h2>Need help with linked data?</h2>
 					</a>
@@ -127,7 +134,7 @@ MyComponent.propTypes = {
 					<div class="tsd-signature tsd-kind-icon">blank<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.BlankNode]).isRequired,value: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L9">prop-types/src/index.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/06ffd76/packages/prop-types/src/index.ts#L9">prop-types/src/index.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -142,7 +149,7 @@ MyComponent.propTypes = {
 					<div class="tsd-signature tsd-kind-icon">literal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.Literal]).isRequired,value: string.isRequired,datatype: namedNode,language: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L21">prop-types/src/index.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/06ffd76/packages/prop-types/src/index.ts#L21">prop-types/src/index.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -157,7 +164,7 @@ MyComponent.propTypes = {
 					<div class="tsd-signature tsd-kind-icon">named<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.NamedNode]).isRequired,value: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L15">prop-types/src/index.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/06ffd76/packages/prop-types/src/index.ts#L15">prop-types/src/index.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -172,7 +179,7 @@ MyComponent.propTypes = {
 					<div class="tsd-signature tsd-kind-icon">node<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;oneOfType([blankNode, namedNode])</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L30">prop-types/src/index.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/06ffd76/packages/prop-types/src/index.ts#L30">prop-types/src/index.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,7 +194,7 @@ MyComponent.propTypes = {
 					<div class="tsd-signature tsd-kind-icon">quad<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({subject: oneOfType([ blankNode, namedNode ]).isRequired,predicate: namedNode.isRequired,object: oneOfType([ blankNode, namedNode, literal ]).isRequired,graph: oneOfType([ blankNode, namedNode ]),})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L36">prop-types/src/index.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/06ffd76/packages/prop-types/src/index.ts#L36">prop-types/src/index.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -202,7 +209,7 @@ MyComponent.propTypes = {
 					<div class="tsd-signature tsd-kind-icon">term<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;oneOfType([blankNode, namedNode, literal])</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L33">prop-types/src/index.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/06ffd76/packages/prop-types/src/index.ts#L33">prop-types/src/index.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
