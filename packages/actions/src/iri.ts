@@ -1,4 +1,4 @@
-import rdfFactory, {
+import rdf, {
   isTerm,
   NamedNode,
   Namespace,
@@ -103,7 +103,7 @@ export const parseAction = <ParamMap extends IRIParams<ParamMap> = {}>(action: N
   const url = new URL(action.value);
   const params = {};
   url.searchParams.forEach((value: string, key: string) => {
-    const parsedValue = rdfFactory.termFromNQ(value);
+    const parsedValue = rdf.termFromNQ(value);
     params[key] = parsedValue || value;
   });
 
@@ -111,7 +111,7 @@ export const parseAction = <ParamMap extends IRIParams<ParamMap> = {}>(action: N
 
   return {
     action,
-    base: rdfFactory.namedNode(url.toString()),
+    base: rdf.namedNode(url.toString()),
     params: params as Partial<ParamMap>,
   };
 };

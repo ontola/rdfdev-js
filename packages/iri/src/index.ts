@@ -1,4 +1,4 @@
-import rdfFactory, { NamedNode } from "@ontologies/core";
+import rdf, { NamedNode } from "@ontologies/core";
 
 /**
  * Transforms the {iri} to match what a browser would fetch for that IRI.
@@ -18,7 +18,7 @@ export function docStr(iri: string): string {
  * Effectively the IRI without the fragment (#).
  */
 export function doc(iri: NamedNode): NamedNode {
-  return rdfFactory.namedNode(docStr(iri.value));
+  return rdf.namedNode(docStr(iri.value));
 }
 
 /**
@@ -63,7 +63,7 @@ export function originStr(iri: string): string {
  * Get the origin of the {iri} without trailing slash
  */
 export function origin(iri: NamedNode): NamedNode {
-  return rdfFactory.namedNode(originStr(iri.value));
+  return rdf.namedNode(originStr(iri.value));
 }
 
 /**
@@ -83,7 +83,7 @@ export function parentDirStr(iri: string): string {
  * Get the IRI of the directory containing {iri} or its parent if {iri} has a trailing slash.
  */
 export function parentDir(iri: NamedNode): NamedNode {
-  return rdfFactory.namedNode(parentDirStr(iri.value));
+  return rdf.namedNode(parentDirStr(iri.value));
 }
 
 /**
@@ -97,7 +97,7 @@ export function siteStr(iri: string): string {
  * Get the origin of the {iri} with trailing slash
  */
 export function site(iri: NamedNode): NamedNode {
-  return rdfFactory.namedNode(siteStr(iri.value));
+  return rdf.namedNode(siteStr(iri.value));
 }
 
 /**

@@ -1,9 +1,9 @@
-import rdfFactory, { NamedNode } from "@ontologies/core";
+import rdf, { NamedNode } from "@ontologies/core";
 
 import { MiddlewareActionHandler, MiddlewareFn, StoreBoundMiddleware } from "./types";
 
 const defaultExecutableSites = typeof window !== "undefined"
-  ? [rdfFactory.namedNode(new URL(window.origin))]
+  ? [rdf.namedNode(new URL(window.origin))]
   : [];
 
 /**
@@ -14,7 +14,7 @@ const defaultExecutableSites = typeof window !== "undefined"
 export const createExecFilter = (executableSites = defaultExecutableSites): MiddlewareFn => {
   return (): StoreBoundMiddleware => {
     return (next: MiddlewareActionHandler) => (iri: NamedNode, opts: any): Promise<any> => {
-      if (executableSites.includes(rdfFactory.namedNode(new URL(iri.value).origin))) {
+      if (executableSites.includes(rdf.namedNode(new URL(iri.value).origin))) {
         return next(iri, opts);
       }
 

@@ -1,7 +1,7 @@
-import rdfFactory, { Node } from "@ontologies/core";
+import rdf, { Node } from "@ontologies/core";
 import ld from "@ontologies/ld"
 
-const buildGraph = (graphName: string) => (graph: Node) => ld.ns(graph === rdfFactory.defaultGraph()
+const buildGraph = (graphName: string) => (graph: Node) => ld.ns(graph === rdf.defaultGraph()
   ? graphName
   : `${graphName}?graph=${encodeURIComponent(graph.value)}`);
 
@@ -12,7 +12,7 @@ export const purgeGraph = buildGraph("purge");
 export const removeGraph = buildGraph("remove");
 export const supplantGraph = buildGraph("supplant");
 
-const buildQuadCreator = (graphBuilder) => (s, p, o, g = rdfFactory.defaultGraph()) => rdfFactory.quad(s, p, o, graphBuilder(g));
+const buildQuadCreator = (graphBuilder) => (s, p, o, g = rdf.defaultGraph()) => rdf.quad(s, p, o, graphBuilder(g));
 
 /**
  * Create a delta statement adding ({s}, {p}, {o}) to {g} or the default graph
