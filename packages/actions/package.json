@@ -1,6 +1,6 @@
 {
   "name": "@rdfdev/actions",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.3",
   "description": "Work with linked delta actions quick and easy",
   "scripts": {
     "build": "pika build"
