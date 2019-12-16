@@ -10,7 +10,7 @@ Collection of libraries to ease in JavaScript RDF development.
 [![npm (tag)](https://img.shields.io/npm/v/@rdfdev/iri)](https://npmjs.com/package/@rdfdev/iri)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@rdfdev/iri)](https://bundlephobia.com/result?p=@rdfdev/iri)
 
-A lot of IRI/URI manipulation can happen while working with linked data, this package provides 
+A lot of IRI/URI manipulation can happen while working with linked data, this package provides
 utility functions to do just that.
 
 ### Actions
@@ -26,14 +26,14 @@ and link middleware.
 [![npm (tag)](https://img.shields.io/npm/v/@rdfdev/collections)](https://npmjs.com/package/@rdfdev/collections)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@rdfdev/collections)](https://bundlephobia.com/result?p=@rdfdev/collections)
 
-Utilities for working with different kinds of RDF collections (rdf:Seq, rdf:List)
+Utilities for reading and manipulating different kinds of RDF collections (rdf:Seq, rdf:List)
 
 ### Delta
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://js.rdf.dev/delta)
 [![npm (tag)](https://img.shields.io/npm/v/@rdfdev/delta)](https://npmjs.com/package/@rdfdev/delta)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@rdfdev/delta)](https://bundlephobia.com/result?p=@rdfdev/delta)
 
-Utilities to quickly create [linked deltas](https://github.com/ontola/linked-delta), an rdf-native 
+Utilities to quickly create [linked deltas](https://github.com/ontola/linked-delta), an rdf-native
 way to express and process changes in state.
 
 ### Prop types
@@ -45,7 +45,7 @@ React [prop-type](https://reactjs.org/docs/typechecking-with-proptypes.html) dec
 RDF data structures.
 
 ## See also
-The following libraries are used by these packages. 
+The following libraries are used by these packages.
 ### @ontologies/core
 [![GitHub stars](https://img.shields.io/github/stars/ontola/ontologies?style=social)](https://github.com/ontola/ontologies)
 [![npm (tag)](https://img.shields.io/npm/v/@ontologies/core/next?label=npm)](https://npmjs.com/package/@ontologies/core)
@@ -53,13 +53,13 @@ The following libraries are used by these packages.
 
 Makes working with RDF a breeze:
 * Types for RDF including quads, literals, resources.
-* A data factory for creating RDF data. 
+* A data factory for creating RDF data.
 * Access a run-time set datafactory in static context!
 * Typeguards to check if something is an RDF object.
 
 ### Link lib
 
-[![GitHub stars](https://img.shields.io/github/stars/fletcher91/link-lib?style=social)](https://github.com/fletcher91/link-lib) 
+[![GitHub stars](https://img.shields.io/github/stars/fletcher91/link-lib?style=social)](https://github.com/fletcher91/link-lib)
 [![npm (tag)](https://img.shields.io/npm/v/link-lib/light?label=npm)](https://npmjs.com/package/link-lib)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/link-lib@light)
 ![CircleCI](https://img.shields.io/circleci/build/gh/fletcher91/link-lib/use-data-factory-and-ontologies)
@@ -68,7 +68,7 @@ Makes working with RDF a breeze:
 Fetch, store, write and render linked data.
 
 ### Link redux
-[![GitHub stars](https://img.shields.io/github/stars/fletcher91/link-redux?style=social)](https://github.com/fletcher91/link-redux) 
+[![GitHub stars](https://img.shields.io/github/stars/fletcher91/link-redux?style=social)](https://github.com/fletcher91/link-redux)
 [![npm (tag)](https://img.shields.io/npm/v/link-redux/light?label=npm)](https://npmjs.com/package/link-redux)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/link-redux@light)
 ![CircleCI](https://img.shields.io/circleci/build/gh/fletcher91/link-redux/datafactory)

@@ -57,8 +57,7 @@
     "@ontologies/core": "*",
     "@ontologies/ld": "*",
     "@ontologies/rdf": "*",
-    "@ontologies/rdfs": "*",
-    "link-lib": "*"
+    "@ontologies/rdfs": "*"
   },
   "devDependencies": {
     "@ontologies/core": "2.0.0-2",
