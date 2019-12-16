@@ -67,9 +67,33 @@
 					<a href="#jsrdfdevprop-types" id="jsrdfdevprop-types" style="color: inherit; text-decoration: none;">
 						<h1>js.rdf.dev/prop-types</h1>
 					</a>
-					<p><a href="https://npmjs.com/package/@rdfdev/prop-types"><img src="https://img.shields.io/npm/v/@rdfdev/prop-types" alt="npm (tag)"></a></p>
-					<p>React prop-type declarations for a lot of the RDF data structures.</p>
-					<p>See the <a href="https://github.com/ontola/rdfdev">rdf.dev documentation</a></p>
+					<p><a href="https://js.rdf.dev/prop-types"><img src="https://img.shields.io/readthedocs/pip.svg" alt="Read the Docs"></a>
+						<a href="https://npmjs.com/package/@rdfdev/prop-types"><img src="https://img.shields.io/npm/v/@rdfdev/prop-types" alt="npm (tag)"></a>
+					<a href="https://bundlephobia.com/result?p=@rdfdev/prop-types"><img src="https://img.shields.io/bundlephobia/minzip/@rdfdev/prop-types" alt="npm bundle size"></a></p>
+					<p>React <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">prop-type</a> declarations for the
+					RDF data structures.</p>
+					<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+						<h2>Example</h2>
+					</a>
+					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"prop-types"</span>;
+<span class="hljs-keyword">import</span> RDFTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"@rdfdev/prop-types"</span>;
+
+<span class="hljs-keyword">const</span> MyComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {}; <span class="hljs-comment">// Omitted for brevity</span>
+
+MyComponent.propTypes = {
+  <span class="hljs-comment">// The name as an RDF Literal (e.g. xsd:string)</span>
+  name: RDFTypes.literal,
+  <span class="hljs-comment">// The IRI of the author</span>
+  author: RDFTypes.namedNode,
+  <span class="hljs-comment">// The statements/quads on their books.</span>
+  bookData: PropTypes.arrayOf(RDFTypes.quad),
+  <span class="hljs-comment">// A link to the comments, either an IRI (e.g. https) or blank (temporary document-scoped link)</span>
+  comments: RDFTypes.nodeType,
+};</code></pre>
+					<a href="#see-also" id="see-also" style="color: inherit; text-decoration: none;">
+						<h2>See also</h2>
+					</a>
+					<p>See the <a href="https://js.rdf.dev">js.rdf.dev documentation</a></p>
 					<a href="#need-help-with-linked-data" id="need-help-with-linked-data" style="color: inherit; text-decoration: none;">
 						<h2>Need help with linked data?</h2>
 					</a>
@@ -84,11 +108,11 @@
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#blanknodeshape" class="tsd-kind-icon">blank<wbr>Node<wbr>Shape</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#literalshape" class="tsd-kind-icon">literal<wbr>Shape</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#namednodeshape" class="tsd-kind-icon">named<wbr>Node<wbr>Shape</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#blanknode" class="tsd-kind-icon">blank<wbr>Node</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#literal" class="tsd-kind-icon">literal</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#namednode" class="tsd-kind-icon">named<wbr>Node</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#nodetype" class="tsd-kind-icon">node<wbr>Type</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#quadshape" class="tsd-kind-icon">quad<wbr>Shape</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#quad" class="tsd-kind-icon">quad</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_rdfdev_prop_types.html#termtype" class="tsd-kind-icon">term<wbr>Type</a></li>
 							</ul>
 						</section>
@@ -98,12 +122,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="blanknodeshape" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> blank<wbr>Node<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">blank<wbr>Node<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.BlankNode]).isRequired,value: string.isRequired,})</span></div>
+					<a name="blanknode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> blank<wbr>Node</h3>
+					<div class="tsd-signature tsd-kind-icon">blank<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.BlankNode]).isRequired,value: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/361350c/packages/prop-types/src/index.ts#L9">prop-types/src/index.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L9">prop-types/src/index.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -113,12 +137,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="literalshape" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> literal<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">literal<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.Literal]).isRequired,value: string.isRequired,datatype: namedNodeShape,language: string.isRequired,})</span></div>
+					<a name="literal" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> literal</h3>
+					<div class="tsd-signature tsd-kind-icon">literal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.Literal]).isRequired,value: string.isRequired,datatype: namedNode,language: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/361350c/packages/prop-types/src/index.ts#L21">prop-types/src/index.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L21">prop-types/src/index.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -128,12 +152,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="namednodeshape" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> named<wbr>Node<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">named<wbr>Node<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.NamedNode]).isRequired,value: string.isRequired,})</span></div>
+					<a name="namednode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> named<wbr>Node</h3>
+					<div class="tsd-signature tsd-kind-icon">named<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.NamedNode]).isRequired,value: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/361350c/packages/prop-types/src/index.ts#L15">prop-types/src/index.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L15">prop-types/src/index.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -145,10 +169,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="nodetype" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> node<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">node<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;oneOfType([blankNodeShape, namedNodeShape])</span></div>
+					<div class="tsd-signature tsd-kind-icon">node<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;oneOfType([blankNode, namedNode])</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/361350c/packages/prop-types/src/index.ts#L30">prop-types/src/index.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L30">prop-types/src/index.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -158,12 +182,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="quadshape" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> quad<wbr>Shape</h3>
-					<div class="tsd-signature tsd-kind-icon">quad<wbr>Shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({subject: oneOfType([ blankNodeShape, namedNodeShape ]).isRequired,predicate: namedNodeShape.isRequired,object: oneOfType([ blankNodeShape, namedNodeShape, literalShape ]).isRequired,graph: oneOfType([ blankNodeShape, namedNodeShape ]),})</span></div>
+					<a name="quad" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> quad</h3>
+					<div class="tsd-signature tsd-kind-icon">quad<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({subject: oneOfType([ blankNode, namedNode ]).isRequired,predicate: namedNode.isRequired,object: oneOfType([ blankNode, namedNode, literal ]).isRequired,graph: oneOfType([ blankNode, namedNode ]),})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/361350c/packages/prop-types/src/index.ts#L36">prop-types/src/index.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L36">prop-types/src/index.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -175,10 +199,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="termtype" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> term<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">term<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;oneOfType([blankNodeShape, namedNodeShape, literalShape])</span></div>
+					<div class="tsd-signature tsd-kind-icon">term<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;oneOfType([blankNode, namedNode, literal])</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/361350c/packages/prop-types/src/index.ts#L33">prop-types/src/index.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/6384261/packages/prop-types/src/index.ts#L33">prop-types/src/index.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -215,19 +239,19 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_rdfdev_prop_types.html#blanknodeshape" class="tsd-kind-icon">blank<wbr>Node<wbr>Shape</a>
+						<a href="_rdfdev_prop_types.html#blanknode" class="tsd-kind-icon">blank<wbr>Node</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_rdfdev_prop_types.html#literalshape" class="tsd-kind-icon">literal<wbr>Shape</a>
+						<a href="_rdfdev_prop_types.html#literal" class="tsd-kind-icon">literal</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_rdfdev_prop_types.html#namednodeshape" class="tsd-kind-icon">named<wbr>Node<wbr>Shape</a>
+						<a href="_rdfdev_prop_types.html#namednode" class="tsd-kind-icon">named<wbr>Node</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="_rdfdev_prop_types.html#nodetype" class="tsd-kind-icon">node<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_rdfdev_prop_types.html#quadshape" class="tsd-kind-icon">quad<wbr>Shape</a>
+						<a href="_rdfdev_prop_types.html#quad" class="tsd-kind-icon">quad</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="_rdfdev_prop_types.html#termtype" class="tsd-kind-icon">term<wbr>Type</a>
