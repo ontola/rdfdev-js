@@ -6,39 +6,39 @@ import { TermType } from "@ontologies/core";
 import { oneOf, oneOfType, shape, string } from "prop-types";
 
 /** Validate if the prop is a valid BlankNode. */
-export const blankNodeShape = shape({
+export const blankNode = shape({
   termType: oneOf([TermType.BlankNode]).isRequired,
   value: string.isRequired,
 });
 
 /** Validate if the prop is a valid NamedNode. */
-export const namedNodeShape = shape({
+export const namedNode = shape({
   termType: oneOf([TermType.NamedNode]).isRequired,
   value: string.isRequired,
 });
 
 /** Validate if the prop is a valid Literal. */
-export const literalShape = shape({
+export const literal = shape({
   termType: oneOf([TermType.Literal]).isRequired,
   value: string.isRequired,
 
-  datatype: namedNodeShape,
+  datatype: namedNode,
   language: string.isRequired,
 });
 
 /** Validate if the prop is a valid node (blank or named). */
-export const nodeType = oneOfType([blankNodeShape, namedNodeShape]);
+export const nodeType = oneOfType([blankNode, namedNode]);
 
 /** Validate if the prop is a valid term (blank node, named node, or literal). */
-export const termType = oneOfType([blankNodeShape, namedNodeShape, literalShape]);
+export const termType = oneOfType([blankNode, namedNode, literal]);
 
 /** Validate if the prop is a valid Quad. */
-export const quadShape = shape({
-  subject: oneOfType([ blankNodeShape, namedNodeShape ]).isRequired,
+export const quad = shape({
+  subject: oneOfType([ blankNode, namedNode ]).isRequired,
 
-  predicate: namedNodeShape.isRequired,
+  predicate: namedNode.isRequired,
 
-  object: oneOfType([ blankNodeShape, namedNodeShape, literalShape ]).isRequired,
+  object: oneOfType([ blankNode, namedNode, literal ]).isRequired,
 
-  graph: oneOfType([ blankNodeShape, namedNodeShape ]),
+  graph: oneOfType([ blankNode, namedNode ]),
 });
