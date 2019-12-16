@@ -7,7 +7,7 @@
   },
   "author": "Fletcher91 <thom@freedom.nl>",
   "license": "MIT",
-  "repository": "https://github.com/ontola/rdfdev",
+  "repository": "https://github.com/ontola/rdfdev-js",
   "keywords": [
     "rdf",
     "rest",
