@@ -5,8 +5,19 @@
 
 Utilities for working with link actions.
 
-## See also
-See the [js.rdf.dev documentation](https://js.rdf.dev)
+## Getting started
+
+Just install the package and its peer dependencies.
+
+`npm i @rdfdev/collections @ontologies/core`
+
+`yarn add @rdfdev/collections @ontologies/core`
+
+## Documentation
+
+See the [js.rdf.dev/actions documentation](https://js.rdf.dev/actions)
+
+See the complete [js.rdf.dev documentation](https://js.rdf.dev)
 
 ## Need help with linked data?
 

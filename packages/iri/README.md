@@ -23,8 +23,19 @@ site(myIRI)          // rdf.namedNode("https://example.com/")
 term(myIRI)        // "profilePicture"
 ```
 
-## See also
-See the [js.rdf.dev documentation](https://js.rdf.dev)
+## Getting started
+
+Just install the package and its peer dependencies.
+
+`npm i @rdfdev/iri @ontologies/core`
+
+`yarn add @rdfdev/iri @ontologies/core`
+
+## Documentation
+
+See the [js.rdf.dev/iri documentation](https://js.rdf.dev/iri)
+
+See the complete [js.rdf.dev documentation](https://js.rdf.dev)
 
 ## Need help with linked data?
 

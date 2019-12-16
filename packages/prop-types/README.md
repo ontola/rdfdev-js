@@ -25,8 +25,19 @@ MyComponent.propTypes = {
 };
 ```
 
-## See also
-See the [js.rdf.dev documentation](https://js.rdf.dev)
+## Getting started
+
+Just install the package and its peer dependencies.
+
+`npm i @rdfdev/prop-types @ontologies/core prop-types`
+
+`yarn add @rdfdev/prop-types @ontologies/core prop-types`
+
+## Documentation
+
+See the [js.rdf.dev/prop-types documentation](https://js.rdf.dev/prop-types)
+
+See the complete [js.rdf.dev documentation](https://js.rdf.dev)
 
 ## Need help with linked data?
 

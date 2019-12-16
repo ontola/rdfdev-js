@@ -48,8 +48,19 @@ lastTermOfList(myStore, listIRI); // rdf.namedNode("https://three.example/")
 
 ```
 
-## See also
-See the [js.rdf.dev documentation](https://js.rdf.dev)
+## Getting started
+
+Just install the package and its peer dependencies.
+
+`npm i @rdfdev/collections @ontologies/core @ontologies/ld @ontologies/rdf @ontologies/rdfs`
+
+`yarn add @rdfdev/collections @ontologies/core @ontologies/ld @ontologies/rdf @ontologies/rdfs`
+
+## Documentation
+
+See the [js.rdf.dev/collections documentation](https://js.rdf.dev/collections)
+
+See the complete [js.rdf.dev documentation](https://js.rdf.dev)
 
 ## Need help with linked data?
 

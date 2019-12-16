@@ -23,8 +23,19 @@ const updateName = [
 new RDFStore().processDelta(updateName) // Changes applied
 ```
 
-## See also
-See the [js.rdf.dev documentation](https://js.rdf.dev)
+## Getting started
+
+Just install the package and its peer dependencies.
+
+`npm i @rdfdev/delta @ontologies/core @ontologies/ld`
+
+`yarn add @rdfdev/delta @ontologies/core @ontologies/ld`
+
+## Documentation
+
+See the [js.rdf.dev/delta documentation](https://js.rdf.dev/delta)
+
+See the complete [js.rdf.dev documentation](https://js.rdf.dev)
 
 ## Need help with linked data?
 
