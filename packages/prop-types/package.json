@@ -1,6 +1,6 @@
 {
   "name": "@rdfdev/prop-types",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0",
   "description": "PropType definitions for RDF objects",
   "scripts": {
     "build": "pika build"
