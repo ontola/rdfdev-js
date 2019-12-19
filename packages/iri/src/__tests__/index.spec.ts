@@ -3,7 +3,7 @@ import "jest";
 import rdf from "@ontologies/core";
 import "jest";
 
-import { doc, filename, filenameStr, origin, parentDir, site, term } from "./index";
+import { doc, filename, filenameStr, origin, parentDir, site, term } from "../index";
 
 const root = rdf.namedNode("http://example.com/");
 const rootSlashless = rdf.namedNode("http://example.com");

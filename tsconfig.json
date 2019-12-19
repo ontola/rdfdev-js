@@ -4,5 +4,8 @@
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true
-  }
+  },
+  "exclude": [
+    "**/__tests__/*"
+  ]
 }
