@@ -141,7 +141,7 @@ export function seqPush(
   return (Array.isArray(value) ? value : [value])
     .map((term, i) => rdf.quad(
         seqIRI,
-        rdf.ns(`_${upperBound + 1 + i}`),
+        rdfx.ns(`_${upperBound + 1 + i}`),
         term,
         method,
       ));
