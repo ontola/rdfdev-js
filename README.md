@@ -1,8 +1,10 @@
 # js.rdf.dev
+[![GitHub stars](https://img.shields.io/github/stars/ontola/rdfdev-js?style=social)](https://github.com/ontola/rdfdev-js)
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://js.rdf.dev/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/292914da43d93b43addd/maintainability)](https://codeclimate.com/github/ontola/rdfdev-js/maintainability)
 
 Collection of libraries to ease in JavaScript RDF development.
+Open source (MIT licensed).
 
 ## Packages
 ### IRI
@@ -75,7 +77,6 @@ Fetch, store, write and render linked data.
 [![Maintainability](https://api.codeclimate.com/v1/badges/6801255f84f20aa73420/maintainability)](https://codeclimate.com/github/fletcher91/link-redux/maintainability)
 
 All the tools needed to quickly create interactive web apps consuming RDF.
-
 
 ## Need help with linked data?
 
