@@ -103,8 +103,13 @@ export const parseAction = <ParamMap extends IRIParams<ParamMap> = {}>(action: N
   const url = new URL(action.value);
   const params = {};
   url.searchParams.forEach((value: string, key: string) => {
-    const parsedValue = rdf.termFromNQ(value);
-    params[key] = parsedValue || value;
+    const t = decodeURIComponent(value);
+    try {
+      const parsedValue = rdf.termFromNQ(t);
+      params[key] = parsedValue || t;
+    } catch(e) {
+      params[key] = t;
+    }
   });
 
   url.search = "";
