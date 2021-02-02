@@ -1,5 +1,5 @@
 import rdf, { Node } from "@ontologies/core";
-import ld from "@ontologies/ld"
+import * as ld from "@ontologies/ld"
 
 const buildGraph = (graphName: string) => (graph: Node) => ld.ns(graph === rdf.defaultGraph()
   ? graphName

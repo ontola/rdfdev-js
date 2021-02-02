@@ -1,5 +1,5 @@
 import rdf, { Node, Quad, SomeTerm, Term } from "@ontologies/core";
-import rdfx from "@ontologies/rdf";
+import * as rdfx from "@ontologies/rdf";
 
 import { Store } from "./types";
 
