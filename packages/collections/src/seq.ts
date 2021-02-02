@@ -1,7 +1,7 @@
 import rdf, { NamedNode, Node, Term, Quad, SomeTerm } from "@ontologies/core";
-import ld from "@ontologies/ld";
-import rdfx from "@ontologies/rdf";
-import rdfs from "@ontologies/rdfs";
+import * as ld from "@ontologies/ld";
+import * as rdfx from "@ontologies/rdf";
+import * as rdfs from "@ontologies/rdfs";
 
 import { Store } from "./types";
 
