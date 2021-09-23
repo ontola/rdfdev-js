@@ -22,15 +22,15 @@ export interface ActionExecutor {
 export type IRIParams<T> = Record<keyof T, SomeTerm | string>;
 
 export interface ParsedAction<ParamMap extends IRIParams<ParamMap> = {}> {
-  action: NamedNode;
-  base: NamedNode;
+  action: Node;
+  base: Node;
   params: Partial<ParamMap>;
 }
 
 export type BoundActionDispatcher<ParamMap extends IRIParams<ParamMap> = {}> =
   (action: string, payload?: Partial<ParamMap>) => Promise<any>;
 
-export type MiddlewareActionHandler<Args = any> = (action: NamedNode, args: Args) => Promise<any>;
+export type MiddlewareActionHandler<Args = any> = (action: Node, args: Args) => Promise<any>;
 
 export type StoreBoundMiddleware = (next: MiddlewareActionHandler) => MiddlewareActionHandler;
 

@@ -1,10 +1,11 @@
 import rdf, {
+  isBlankNode,
   isTerm,
   NamedNode,
-  Namespace,
+  Namespace, Node,
   PlainFactory,
   SomeTerm,
-} from "@ontologies/core";
+} from '@ontologies/core';
 
 import {
   ActionExecutor,
@@ -85,7 +86,7 @@ export const createActionPair = <
   Store extends ActionExecutor = any
   >(base: Namespace, store: Store) => ({
   dispatch: createActionNS<ParamMap>(base, store),
-  parse: (action: NamedNode) => parseAction<ParamMap>(action),
+  parse: (action: Node) => parseAction<ParamMap>(action),
 });
 
 /**
@@ -97,8 +98,17 @@ export const createActionPair = <
  * used. The resulting {return.params} is not guaranteed to be correct with the given {ParamMap}, it
  * is for typing purposes only.
  */
-export const parseAction = <ParamMap extends IRIParams<ParamMap> = {}>(action: NamedNode):
+export const parseAction = <ParamMap extends IRIParams<ParamMap> = {}>(action: Node):
   ParsedAction<ParamMap> => {
+
+
+  if (isBlankNode(action)) {
+    return {
+      action,
+      base: action,
+      params: {},
+    };
+  }
 
   const url = new URL(action.value);
   const params = {};
@@ -106,7 +116,7 @@ export const parseAction = <ParamMap extends IRIParams<ParamMap> = {}>(action: N
     const t = decodeURIComponent(value);
     try {
       const parsedValue = rdf.termFromNQ(t);
-      params[key] = parsedValue || t;
+      params[key] = parsedValue ?? t;
     } catch(e) {
       params[key] = t;
     }
