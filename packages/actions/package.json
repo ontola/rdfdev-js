@@ -1,9 +1,10 @@
 {
   "name": "@rdfdev/actions",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Work with linked delta actions quick and easy",
   "scripts": {
-    "build": "pika build"
+    "build": "pika build",
+    "version": "npm run build"
   },
   "author": "Fletcher91 <thom@freedom.nl>",
   "license": "MIT",
