@@ -62,75 +62,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<a href="#jsrdfdevcollections" id="jsrdfdevcollections" style="color: inherit; text-decoration: none;">
-						<h1>js.rdf.dev/collections</h1>
-					</a>
-					<p><a href="https://js.rdf.dev/collections"><img src="https://img.shields.io/readthedocs/pip.svg" alt="Read the Docs"></a>
-						<a href="https://npmjs.com/package/@rdfdev/collections"><img src="https://img.shields.io/npm/v/@rdfdev/collections" alt="npm (tag)"></a>
-					<a href="https://bundlephobia.com/result?p=@rdfdev/collections"><img src="https://img.shields.io/bundlephobia/minzip/@rdfdev/collections" alt="npm bundle size"></a></p>
-					<p>Utilities for reading and manipulating different kinds of RDF collections (rdf:Seq, rdf:List)</p>
-					<a href="#example" id="example" style="color: inherit; text-decoration: none;">
-						<h2>Example</h2>
-					</a>
-					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> rdf <span class="hljs-keyword">from</span> <span class="hljs-string">"@ontologies/core"</span>;
-<span class="hljs-keyword">import</span> { arrayToList, arrayToSeq, firstTermOfList, lastTermOfList, firstTermOfSeq, lastTermOfSeq, listToArray, seqToArray, Store } <span class="hljs-keyword">from</span> <span class="hljs-string">"@rdfdev/collections"</span>;
-
-<span class="hljs-keyword">const</span> myArray = [<span class="hljs-string">"one"</span>, <span class="hljs-number">2</span>, rdf.namedNode(<span class="hljs-string">"https://three.example/"</span>)];
-<span class="hljs-keyword">const</span> myStore: Store; <span class="hljs-comment">// This can be the LinkedRenderStore from link-lib or your own.</span>
-
-<span class="hljs-comment">// Converting an array to an rdf Sequence</span>
-<span class="hljs-keyword">const</span> [ seqData, seqIRI ] =  arrayToSeq(myArray);
-myStore.addQuads(seqData);
-<span class="hljs-comment">/**
- * The `seqData` would contain the following quads;
- * &lt;seqIRI&gt; a rdf:Seq .
- *      rdf:_0 "one" .
- *      rdf:_1 "2"^^http://www.w3.org/2001/XMLSchema#number .
- *      rdf:_2 &lt;https://three.example/&gt; ;
- */</span>
-
-<span class="hljs-comment">// Reading</span>
-seqToArray(seqIRI); <span class="hljs-comment">// [rdf.literal("one"), rdf.literal(2), rdf.namedNode("https://three.example/")]</span>
-firstTermOfSeq(myStore, listIRI); <span class="hljs-comment">// rdf.literal("one")</span>
-lastTermOfSeq(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("https://three.example/")</span>
-
-<span class="hljs-keyword">const</span> [ listData, listIRI ] = arrayToList(myArray);
-myStore.addQuads(listData);
-<span class="hljs-comment">/**
- * The `seqData` would contain the following quads;
- * &lt;listIRI&gt; rdf:first "one" .
- * &lt;listIRI&gt; rdf:rest _:0 .
- * _:0 rdf:first "2"^^http://www.w3.org/2001/XMLSchema#number .
- * _:0 rdf:rest _:1 .
- * _:1 rdf:first &lt;https://three.example/&gt; ;
- * _:1 rdf:rest rdf:nil ;
- */</span>
-
-<span class="hljs-comment">// Reading</span>
-listToArray(listIRI); <span class="hljs-comment">// [rdf.literal("one"), rdf.literal(2), rdf.namedNode("https://three.example/")]</span>
-firstTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.literal("one")</span>
-lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("https://three.example/")</span>
-</code></pre>
-					<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
-						<h2>Getting started</h2>
-					</a>
-					<p>Just install the package and its peer dependencies.</p>
-					<p><code>npm i @rdfdev/collections @ontologies/core @ontologies/ld @ontologies/rdf @ontologies/rdfs</code></p>
-					<p><code>yarn add @rdfdev/collections @ontologies/core @ontologies/ld @ontologies/rdf @ontologies/rdfs</code></p>
-					<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
-						<h2>Documentation</h2>
-					</a>
-					<p>See the <a href="https://js.rdf.dev/collections">js.rdf.dev/collections documentation</a></p>
-					<p>See the complete <a href="https://js.rdf.dev">js.rdf.dev documentation</a></p>
-					<a href="#need-help-with-linked-data" id="need-help-with-linked-data" style="color: inherit; text-decoration: none;">
-						<h2>Need help with linked data?</h2>
-					</a>
-					<p>This package is brought to you by <a href="https://ontola.io">Ontola</a>. We build production-grade linked data
-					solutions and can help you from advice to building custom web services.</p>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -174,37 +105,19 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 					<a name="arraytolist" class="tsd-anchor"></a>
 					<h3>array<wbr>ToList</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">array<wbr>ToList<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">]</span></li>
+						<li class="tsd-signature tsd-kind-icon">array<wbr>ToList<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span>, start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/list.ts#L105">collections/src/list.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/list.ts#L106">collections/src/list.ts:106</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Convert an array of terms to a rdf:List.</p>
-								</div>
-								<p>The quads are ordered, so <code>arrayToList()[0]?.subject</code> gives the list iri or undefined for an
-								empty list.</p>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{listToArray} for the inverse function.</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p>{arrayToListQuads}</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>arr: <span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The array to convert.</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">Node</span></h5>
@@ -219,37 +132,19 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 					<a name="arraytolistquads" class="tsd-anchor"></a>
 					<h3>array<wbr>ToList<wbr>Quads</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">array<wbr>ToList<wbr>Quads<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">array<wbr>ToList<wbr>Quads<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span>, start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/list.ts#L73">collections/src/list.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/list.ts#L74">collections/src/list.ts:74</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Convert an array of terms to a rdf:list.</p>
-								</div>
-								<p>The quads are ordered, so <code>arrayToList()[0]?.subject</code> gives the list iri or undefined for an
-								empty list.</p>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{listToArray} for the inverse function.</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p>{arrayToList}</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>arr: <span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The array to convert.</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">Node</span></h5>
@@ -263,35 +158,19 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 					<a name="arraytoseq" class="tsd-anchor"></a>
 					<h3>array<wbr>ToSeq</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">array<wbr>ToSeq<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">]</span></li>
+						<li class="tsd-signature tsd-kind-icon">array<wbr>ToSeq<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span>, start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L91">collections/src/seq.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L92">collections/src/seq.ts:92</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Convert an array of terms to a rdf:Seq.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{seqToArray} for the inverse function.</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p>{arrayToSeqQuads}</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>arr: <span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The array to convert.</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">Node</span></h5>
@@ -306,37 +185,19 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 					<a name="arraytoseqquads" class="tsd-anchor"></a>
 					<h3>array<wbr>ToSeq<wbr>Quads</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">array<wbr>ToSeq<wbr>Quads<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span>, iri<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">array<wbr>ToSeq<wbr>Quads<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span>, iri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L65">collections/src/seq.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L66">collections/src/seq.ts:66</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Convert an array of terms to a rdf:list.</p>
-								</div>
-								<p>The quads are ordered, so <code>arrayToList()[0]?.subject</code> gives the seq iri or undefined for an
-								empty seq.</p>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{seqToArray} for the inverse function.</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p>{arrayToSeq}</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>arr: <span class="tsd-signature-type">SomeTerm</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The array to convert.</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> iri: <span class="tsd-signature-type">Node</span></h5>
@@ -356,14 +217,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/list.ts#L42">collections/src/list.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/list.ts#L42">collections/src/list.ts:42</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the first quad of the list at {listEntry}</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -390,14 +246,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L34">collections/src/seq.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L34">collections/src/seq.ts:34</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the first quad of the list at {listIRI}</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -424,14 +275,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/list.ts#L47">collections/src/list.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/list.ts#L47">collections/src/list.ts:47</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the first term of the list at {listEntry}</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -458,14 +304,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L39">collections/src/seq.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L39">collections/src/seq.ts:39</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the first term of the list at {listEntry}</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -492,14 +333,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/list.ts#L52">collections/src/list.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/list.ts#L52">collections/src/list.ts:52</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the last quad of the list at {listEntry}</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -526,14 +362,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L44">collections/src/seq.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L44">collections/src/seq.ts:44</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the last quad of the list at {listIRI}</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -560,14 +391,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/list.ts#L57">collections/src/list.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/list.ts#L58">collections/src/list.ts:58</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the last term of the list at {listEntry}</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -594,14 +420,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L49">collections/src/seq.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L50">collections/src/seq.ts:50</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the last term of the list at {listIRI}</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -628,19 +449,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/list.ts#L37">collections/src/list.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/list.ts#L37">collections/src/list.ts:37</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Convert a list to an array of terms</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{arrayToList}</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -664,15 +475,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/list.ts#L11">collections/src/list.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/list.ts#L11">collections/src/list.ts:11</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Convert a list from the point of {listEntry} to a Quad[].</p>
-								</div>
-								<p>Will stop if missing links in the list aren&#39;t present. Can handle circular lists.</p>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -696,7 +501,7 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L18">collections/src/seq.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L18">collections/src/seq.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -722,19 +527,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L14">collections/src/seq.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L14">collections/src/seq.ts:14</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Parses the numerical value of a rdfs:ContainerMembershipProperty predicate.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="https://www.w3.org/TR/rdf-schema/#ch_containermembershipproperty">https://www.w3.org/TR/rdf-schema/#ch_containermembershipproperty</a></p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -756,39 +551,22 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L133">collections/src/seq.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L134">collections/src/seq.ts:134</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a delta to add one or more elements to the sequence.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>store: <a href="../interfaces/_rdfdev_collections.store.html" class="tsd-signature-type">Store</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The store that contains the sequence.</p>
-									</div>
 								</li>
 								<li>
 									<h5>seqIRI: <span class="tsd-signature-type">Node</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The IRI of the sequence</p>
-									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">Term</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Term</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The term or terms to push. Nested arrays aren&#39;t converted to nested sequences.</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> method: <span class="tsd-signature-type">NamedNode</span><span class="tsd-signature-symbol"> =&nbsp;ld.replace</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The delta method to use, uses replace by default.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -805,33 +583,19 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L108">collections/src/seq.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L109">collections/src/seq.ts:109</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a delta to remove the <em>first</em> element in the sequence.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>store: <a href="../interfaces/_rdfdev_collections.store.html" class="tsd-signature-type">Store</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The store that contains the sequence.</p>
-									</div>
 								</li>
 								<li>
 									<h5>seqIRI: <span class="tsd-signature-type">Node</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The IRI of the sequence</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> method: <span class="tsd-signature-type">NamedNode</span><span class="tsd-signature-symbol"> =&nbsp;ld.slice</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The delta method to use, uses slice by default.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Quad</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -848,19 +612,9 @@ lastTermOfList(myStore, listIRI); <span class="hljs-comment">// rdf.namedNode("h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/collections/src/seq.ts#L29">collections/src/seq.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/collections/src/seq.ts#L29">collections/src/seq.ts:29</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Convert a sequence to an array of terms</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>{arrayToList}</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>

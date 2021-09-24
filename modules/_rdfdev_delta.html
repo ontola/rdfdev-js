@@ -62,50 +62,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<a href="#jsrdfdevdelta" id="jsrdfdevdelta" style="color: inherit; text-decoration: none;">
-						<h1>js.rdf.dev/delta</h1>
-					</a>
-					<p><a href="https://js.rdf.dev/delta"><img src="https://img.shields.io/readthedocs/pip.svg" alt="Read the Docs"></a>
-						<a href="https://npmjs.com/package/@rdfdev/delta"><img src="https://img.shields.io/npm/v/@rdfdev/delta" alt="npm (tag)"></a>
-					<a href="https://bundlephobia.com/result?p=@rdfdev/delta"><img src="https://img.shields.io/bundlephobia/minzip/@rdfdev/delta" alt="npm bundle size"></a></p>
-					<p>Utilities to quickly create <a href="https://github.com/ontola/linked-delta">linked deltas</a>, an rdf-native
-					way to express and process changes in state.</p>
-					<a href="#example" id="example" style="color: inherit; text-decoration: none;">
-						<h2>Example</h2>
-					</a>
-					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> rdf <span class="hljs-keyword">from</span> <span class="hljs-string">"@ontologies/core"</span>;
-<span class="hljs-keyword">import</span> schema <span class="hljs-keyword">from</span> <span class="hljs-string">"@ontologies/schema"</span>;
-<span class="hljs-keyword">import</span> { add, replace } <span class="hljs-keyword">from</span> <span class="hljs-string">"@rdfdev/delta"</span>;
-<span class="hljs-keyword">import</span> { RDFStore } <span class="hljs-keyword">from</span> <span class="hljs-string">"link-lib"</span>;
-
-<span class="hljs-keyword">const</span> myProfile = rdf.namedNode(<span class="hljs-string">"https://example.com/profile/card#me"</span>);
-
-<span class="hljs-keyword">const</span> updateName = [
-  replace(myProfile, schema.name, rdf.literal(<span class="hljs-string">"Douglas Engelbart"</span>)),
-  add(myProfile, schema.comment, rdf.literal(<span class="hljs-string">"Update from today"</span>)),
-];
-
-<span class="hljs-keyword">new</span> RDFStore().processDelta(updateName) <span class="hljs-comment">// Changes applied</span></code></pre>
-					<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
-						<h2>Getting started</h2>
-					</a>
-					<p>Just install the package and its peer dependencies.</p>
-					<p><code>npm i @rdfdev/delta @ontologies/core @ontologies/ld</code></p>
-					<p><code>yarn add @rdfdev/delta @ontologies/core @ontologies/ld</code></p>
-					<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
-						<h2>Documentation</h2>
-					</a>
-					<p>See the <a href="https://js.rdf.dev/delta">js.rdf.dev/delta documentation</a></p>
-					<p>See the complete <a href="https://js.rdf.dev">js.rdf.dev documentation</a></p>
-					<a href="#need-help-with-linked-data" id="need-help-with-linked-data" style="color: inherit; text-decoration: none;">
-						<h2>Need help with linked data?</h2>
-					</a>
-					<p>This package is brought to you by <a href="https://ontola.io">Ontola</a>. We build production-grade linked data
-					solutions and can help you from advice to building custom web services.</p>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -138,14 +94,9 @@
 					<div class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildQuadCreator(addGraph)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L20">delta/src/delta.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L20">delta/src/delta.ts:20</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Create a delta statement adding ({s}, {p}, {o}) to {g} or the default graph</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="addgraph" class="tsd-anchor"></a>
@@ -153,7 +104,7 @@
 					<div class="tsd-signature tsd-kind-icon">add<wbr>Graph<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildGraph(&quot;add&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L8">delta/src/delta.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L8">delta/src/delta.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,14 +114,9 @@
 					<div class="tsd-signature tsd-kind-icon">purge<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildQuadCreator(purgeGraph)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L32">delta/src/delta.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L32">delta/src/delta.ts:32</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Create a delta statement purging ({s}, {p}, {o}) to {g} or the default graph</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="purgegraph" class="tsd-anchor"></a>
@@ -178,7 +124,7 @@
 					<div class="tsd-signature tsd-kind-icon">purge<wbr>Graph<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildGraph(&quot;purge&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L11">delta/src/delta.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L11">delta/src/delta.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,14 +134,9 @@
 					<div class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildQuadCreator(removeGraph)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L36">delta/src/delta.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L36">delta/src/delta.ts:36</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Create a delta statement removing ({s}, {p}, {o}) to {g} or the default graph</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="removegraph" class="tsd-anchor"></a>
@@ -203,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">remove<wbr>Graph<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildGraph(&quot;remove&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L12">delta/src/delta.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L12">delta/src/delta.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -213,14 +154,9 @@
 					<div class="tsd-signature tsd-kind-icon">replace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildQuadCreator(replaceGraph)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L24">delta/src/delta.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L24">delta/src/delta.ts:24</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Create a delta statement replacing ({s}, {p}, {o}) to {g} or the default graph</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="replacegraph" class="tsd-anchor"></a>
@@ -228,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">replace<wbr>Graph<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildGraph(&quot;replace&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L9">delta/src/delta.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L9">delta/src/delta.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -238,14 +174,9 @@
 					<div class="tsd-signature tsd-kind-icon">slice<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildQuadCreator(sliceGraph)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L28">delta/src/delta.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L28">delta/src/delta.ts:28</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Create a delta statement slicing ({s}, {p}, {o}) to {g} or the default graph</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="slicegraph" class="tsd-anchor"></a>
@@ -253,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">slice<wbr>Graph<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildGraph(&quot;slice&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L10">delta/src/delta.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L10">delta/src/delta.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,14 +194,9 @@
 					<div class="tsd-signature tsd-kind-icon">supplant<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildQuadCreator(supplantGraph)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L40">delta/src/delta.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L40">delta/src/delta.ts:40</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Create a delta statement supplanting ({s}, {p}, {o}) to {g} or the default graph</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="supplantgraph" class="tsd-anchor"></a>
@@ -278,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">supplant<wbr>Graph<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;buildGraph(&quot;supplant&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/0431008/packages/delta/src/delta.ts#L13">delta/src/delta.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/e63c006/packages/delta/src/delta.ts#L13">delta/src/delta.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
