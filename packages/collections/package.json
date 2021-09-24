@@ -5,7 +5,7 @@
   "scripts": {
     "build": "pika build"
   },
-  "author": "Fletcher91 <thom@freedom.nl>",
+  "author": "rescribet <thom@freedom.nl>",
   "license": "MIT",
   "repository": "https://github.com/ontola/rdfdev-js",
   "keywords": [

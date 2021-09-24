@@ -18,7 +18,7 @@ utility functions to do just that.
 [![npm (tag)](https://img.shields.io/npm/v/@rdfdev/actions)](https://npmjs.com/package/@rdfdev/actions)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@rdfdev/actions)](https://bundlephobia.com/result?p=@rdfdev/actions)
 
-Utilities for working with [link actions](https://github.com/fletcher91/link-lib/wiki/Hypermedia-API)
+Utilities for working with [link actions](https://github.com/rescribet/link-lib/wiki/Hypermedia-API)
 and link middleware.
 
 ### Collections
@@ -59,20 +59,20 @@ Makes working with RDF a breeze:
 
 ### Link lib
 
-[![GitHub stars](https://img.shields.io/github/stars/fletcher91/link-lib?style=social)](https://github.com/fletcher91/link-lib)
+[![GitHub stars](https://img.shields.io/github/stars/rescribet/link-lib?style=social)](https://github.com/rescribet/link-lib)
 [![npm (tag)](https://img.shields.io/npm/v/link-lib/light?label=npm)](https://npmjs.com/package/link-lib)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/link-lib@light)
-![CircleCI](https://img.shields.io/circleci/build/gh/fletcher91/link-lib/use-data-factory-and-ontologies)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e8824bb0fb4bcf689749/maintainability)](https://codeclimate.com/github/fletcher91/link-lib/maintainability)
+![CircleCI](https://img.shields.io/circleci/build/gh/rescribet/link-lib/use-data-factory-and-ontologies)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e8824bb0fb4bcf689749/maintainability)](https://codeclimate.com/github/rescribet/link-lib/maintainability)
 
 Fetch, store, write and render linked data.
 
 ### Link redux
-[![GitHub stars](https://img.shields.io/github/stars/fletcher91/link-redux?style=social)](https://github.com/fletcher91/link-redux)
+[![GitHub stars](https://img.shields.io/github/stars/rescribet/link-redux?style=social)](https://github.com/rescribet/link-redux)
 [![npm (tag)](https://img.shields.io/npm/v/link-redux/light?label=npm)](https://npmjs.com/package/link-redux)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/link-redux@light)
-![CircleCI](https://img.shields.io/circleci/build/gh/fletcher91/link-redux/datafactory)
-[![Maintainability](https://api.codeclimate.com/v1/badges/6801255f84f20aa73420/maintainability)](https://codeclimate.com/github/fletcher91/link-redux/maintainability)
+![CircleCI](https://img.shields.io/circleci/build/gh/rescribet/link-redux/datafactory)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6801255f84f20aa73420/maintainability)](https://codeclimate.com/github/rescribet/link-redux/maintainability)
 
 All the tools needed to quickly create interactive web apps consuming RDF.
 
