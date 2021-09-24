@@ -40,7 +40,7 @@ export function listToArray(store: Store, listEntry: Node): Term[] {
 
 /** Retrieve the first quad of the list at {listEntry} */
 export function firstQuadOfList(store: Store, listEntry: Node): Quad | undefined {
-  return orderedElementsOfList(store, listEntry).shift();
+  return orderedElementsOfList(store, listEntry)[0];
 }
 
 /** Retrieve the first term of the list at {listEntry} */
@@ -50,7 +50,8 @@ export function firstTermOfList(store: Store, listEntry: Node): SomeTerm | undef
 
 /** Retrieve the last quad of the list at {listEntry} */
 export function lastQuadOfList(store: Store, listEntry: Node): Quad | undefined {
-  return orderedElementsOfList(store, listEntry).pop();
+  const it = orderedElementsOfList(store, listEntry);
+  return it[it.length - 1];
 }
 
 /** Retrieve the last term of the list at {listEntry} */

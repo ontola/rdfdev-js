@@ -32,7 +32,7 @@ export function seqToArray(store: Store, seqIRI: Node): Term[] {
 
 /** Retrieve the first quad of the list at {listIRI} */
 export function firstQuadOfSeq(store: Store, seqIRI: Node): Quad | undefined {
-  return orderedQuadsOfSeq(store, seqIRI).shift();
+  return orderedQuadsOfSeq(store, seqIRI)[0];
 }
 
 /** Retrieve the first term of the list at {listEntry} */
@@ -42,7 +42,8 @@ export function firstTermOfSeq(store: Store, seqIRI: Node): SomeTerm | undefined
 
 /** Retrieve the last quad of the list at {listIRI} */
 export function lastQuadOfSeq(store: Store, seqIRI: Node): Quad | undefined {
-  return orderedQuadsOfSeq(store, seqIRI).pop();
+  const it = orderedQuadsOfSeq(store, seqIRI);
+  return it[it.length - 1];
 }
 
 /** Retrieve the last term of the list at {listIRI} */
