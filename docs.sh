@@ -8,5 +8,5 @@ for i in "${projects[@]}"
 do
   cp ./docRedirect.html ./docs/$i.html
   fileName=$(echo $i | tr - _)
-  sed -i "s/packageName/$fileName/g" "./docs/$i.html"
+  sed -i '' -e "s/packageName/$fileName/g" "./docs/$i.html"
 done
