@@ -2,7 +2,6 @@ import rdf, {
   NamedNode,
   Node,
   Term,
-  Quad,
   SomeTerm,
   QuadPosition,
   Quadruple,
@@ -38,7 +37,7 @@ export function seqToArray(store: Store, seqIRI: Node): Term[] {
   return orderedQuadsOfSeq(store, seqIRI).map((s) => s[QuadPosition.object]);
 }
 
-/** Retrieve the first quad of the list at {listIRI} */
+/** Retrieve the first quadruple of the list at {listIRI} */
 export function firstQuadOfSeq(store: Store, seqIRI: Node): Quadruple | undefined {
   return orderedQuadsOfSeq(store, seqIRI)[0];
 }
@@ -48,7 +47,7 @@ export function firstTermOfSeq(store: Store, seqIRI: Node): SomeTerm | undefined
   return firstQuadOfSeq(store, seqIRI)?.[QuadPosition.object];
 }
 
-/** Retrieve the last quad of the list at {listIRI} */
+/** Retrieve the last quadruple of the list at {listIRI} */
 export function lastQuadOfSeq(store: Store, seqIRI: Node): Quadruple | undefined {
   const it = orderedQuadsOfSeq(store, seqIRI);
   return it[it.length - 1];
@@ -62,7 +61,7 @@ export function lastTermOfSeq(store: Store, seqIRI: Node): SomeTerm | undefined 
 /**
  * Convert an array of terms to a rdf:list.
  *
- * The quads are ordered, so `arrayToList()[0]?.subject` gives the seq iri or undefined for an
+ * The quadruples are ordered, so `arrayToList()[0]?.subject` gives the seq iri or undefined for an
  * empty seq.
  *
  * @see {seqToArray} for the inverse function.
@@ -71,17 +70,17 @@ export function lastTermOfSeq(store: Store, seqIRI: Node): SomeTerm | undefined 
  * @param arr - The array to convert.
  * @param [iri] - The iri of the seq, defaults to a blank node.
  */
-export function arrayToSeqQuads(arr: SomeTerm[], iri?: Node): Quad[] {
+export function arrayToSeqQuads(arr: SomeTerm[], iri?: Node): Quadruple[] {
   if (arr.length === 0) {
     return [];
   }
 
   const seq = iri || rdf.blankNode();
   const quads = [
-    rdf.quad(seq, rdfx.type, rdfx.Seq),
+    rdf.quadruple(seq, rdfx.type, rdfx.Seq),
   ];
   for (let i = 0; i < arr.length; i++) {
-    quads.push(rdf.quad(seq, rdfx.ns(`_${i}`), arr[i]));
+    quads.push(rdf.quadruple(seq, rdfx.ns(`_${i}`), arr[i]));
   }
 
   return quads;
@@ -97,14 +96,14 @@ export function arrayToSeqQuads(arr: SomeTerm[], iri?: Node): Quad[] {
  * @param [start] - The iri of the first node in the seq, defaults to a blank node.
  * @return An array with the first element the quads and the second the IRI of the seq.
  */
-export function arrayToSeq(arr: SomeTerm[], start?: Node): [ Quad[], Node ] {
+export function arrayToSeq(arr: SomeTerm[], start?: Node): [ Quadruple[], Node ] {
   const quads = arrayToSeqQuads(arr, start);
 
   if (quads.length === 0) {
     return [quads, rdfx.nil];
   }
 
-  return [quads, quads[0].subject];
+  return [quads, quads[0][QuadPosition.subject]];
 }
 
 /**
@@ -118,11 +117,11 @@ export function seqShift(
   store: Store,
   seqIRI: Node,
   method: NamedNode = ld.slice,
-): Quad[] {
+): Quadruple[] {
   const firstMember = firstQuadOfSeq(store, seqIRI);
 
   return [
-    rdf.quad(
+    rdf.quadruple(
       firstMember[QuadPosition.subject],
       firstMember[QuadPosition.predicate],
       firstMember[QuadPosition.object],
@@ -144,11 +143,11 @@ export function seqPush(
   seqIRI: Node,
   value: Term | Term[],
   method: NamedNode = ld.replace,
-): Quad[] {
+): Quadruple[] {
   const upperBound = Number(seqMemberToNumber(lastQuadOfSeq(store, seqIRI)?.[QuadPosition.predicate]));
 
   return (Array.isArray(value) ? value : [value])
-    .map((term, i) => rdf.quad(
+    .map((term, i) => rdf.quadruple(
         seqIRI,
         rdfx.ns(`_${upperBound + 1 + i}`),
         term,
