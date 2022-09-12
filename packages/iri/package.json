@@ -1,6 +1,6 @@
 {
   "name": "@rdfdev/iri",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Toolkit to make working with IRI's quick and easy",
   "scripts": {
     "build": "pika build",
