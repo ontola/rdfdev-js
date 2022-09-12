@@ -62,6 +62,52 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<a href="#jsrdfdevprop-types" id="jsrdfdevprop-types" style="color: inherit; text-decoration: none;">
+						<h1>js.rdf.dev/prop-types</h1>
+					</a>
+					<p><a href="https://js.rdf.dev/prop-types"><img src="https://img.shields.io/readthedocs/pip.svg" alt="Read the Docs"></a>
+						<a href="https://npmjs.com/package/@rdfdev/prop-types"><img src="https://img.shields.io/npm/v/@rdfdev/prop-types" alt="npm (tag)"></a>
+					<a href="https://bundlephobia.com/result?p=@rdfdev/prop-types"><img src="https://img.shields.io/bundlephobia/minzip/@rdfdev/prop-types" alt="npm bundle size"></a></p>
+					<p>React <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">prop-type</a> declarations for the
+					RDF data structures.</p>
+					<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+						<h2>Example</h2>
+					</a>
+					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"prop-types"</span>;
+<span class="hljs-keyword">import</span> RDFTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"@rdfdev/prop-types"</span>;
+
+<span class="hljs-keyword">const</span> MyComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {}; <span class="hljs-comment">// Omitted for brevity</span>
+
+MyComponent.propTypes = {
+  <span class="hljs-comment">// The name as an RDF Literal (e.g. xsd:string)</span>
+  name: RDFTypes.literal,
+  <span class="hljs-comment">// The IRI of the author</span>
+  author: RDFTypes.namedNode,
+  <span class="hljs-comment">// The statements/quads on their books.</span>
+  bookData: PropTypes.arrayOf(RDFTypes.quad),
+  <span class="hljs-comment">// A link to the comments, either an IRI (e.g. https) or blank (temporary document-scoped link)</span>
+  comments: RDFTypes.nodeType,
+};</code></pre>
+					<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+						<h2>Getting started</h2>
+					</a>
+					<p>Just install the package and its peer dependencies.</p>
+					<p><code>npm i @rdfdev/prop-types @ontologies/core prop-types</code></p>
+					<p><code>yarn add @rdfdev/prop-types @ontologies/core prop-types</code></p>
+					<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+						<h2>Documentation</h2>
+					</a>
+					<p>See the <a href="https://js.rdf.dev/prop-types">js.rdf.dev/prop-types documentation</a></p>
+					<p>See the complete <a href="https://js.rdf.dev">js.rdf.dev documentation</a></p>
+					<a href="#need-help-with-linked-data" id="need-help-with-linked-data" style="color: inherit; text-decoration: none;">
+						<h2>Need help with linked data?</h2>
+					</a>
+					<p>This package is brought to you by <a href="https://ontola.io">Ontola</a>. We build production-grade linked data
+					solutions and can help you from advice to building custom web services.</p>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -88,9 +134,14 @@
 					<div class="tsd-signature tsd-kind-icon">blank<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.BlankNode]).isRequired,value: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/9701e2a/packages/prop-types/src/prop-types.ts#L9">prop-types/src/prop-types.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/66e4fb8/packages/prop-types/src/prop-types.ts#L9">prop-types/src/prop-types.ts:9</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Validate if the prop is a valid BlankNode.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="literal" class="tsd-anchor"></a>
@@ -98,9 +149,14 @@
 					<div class="tsd-signature tsd-kind-icon">literal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.Literal]).isRequired,value: string.isRequired,datatype: namedNode,language: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/9701e2a/packages/prop-types/src/prop-types.ts#L21">prop-types/src/prop-types.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/66e4fb8/packages/prop-types/src/prop-types.ts#L21">prop-types/src/prop-types.ts:21</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Validate if the prop is a valid Literal.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="namednode" class="tsd-anchor"></a>
@@ -108,9 +164,14 @@
 					<div class="tsd-signature tsd-kind-icon">named<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({termType: oneOf([TermType.NamedNode]).isRequired,value: string.isRequired,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/9701e2a/packages/prop-types/src/prop-types.ts#L15">prop-types/src/prop-types.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/66e4fb8/packages/prop-types/src/prop-types.ts#L15">prop-types/src/prop-types.ts:15</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Validate if the prop is a valid NamedNode.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="nodetype" class="tsd-anchor"></a>
@@ -118,9 +179,14 @@
 					<div class="tsd-signature tsd-kind-icon">node<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;oneOfType([blankNode, namedNode])</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/9701e2a/packages/prop-types/src/prop-types.ts#L30">prop-types/src/prop-types.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/66e4fb8/packages/prop-types/src/prop-types.ts#L30">prop-types/src/prop-types.ts:30</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Validate if the prop is a valid node (blank or named).</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="quad" class="tsd-anchor"></a>
@@ -128,9 +194,14 @@
 					<div class="tsd-signature tsd-kind-icon">quad<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;shape({subject: oneOfType([ blankNode, namedNode ]).isRequired,predicate: namedNode.isRequired,object: oneOfType([ blankNode, namedNode, literal ]).isRequired,graph: oneOfType([ blankNode, namedNode ]),})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/9701e2a/packages/prop-types/src/prop-types.ts#L36">prop-types/src/prop-types.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/66e4fb8/packages/prop-types/src/prop-types.ts#L36">prop-types/src/prop-types.ts:36</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Validate if the prop is a valid Quad.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="termtype" class="tsd-anchor"></a>
@@ -138,9 +209,14 @@
 					<div class="tsd-signature tsd-kind-icon">term<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;oneOfType([blankNode, namedNode, literal])</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/9701e2a/packages/prop-types/src/prop-types.ts#L33">prop-types/src/prop-types.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/ontola/rdfdev-js/blob/66e4fb8/packages/prop-types/src/prop-types.ts#L33">prop-types/src/prop-types.ts:33</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Validate if the prop is a valid term (blank node, named node, or literal).</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
