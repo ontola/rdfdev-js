@@ -1,4 +1,12 @@
-import rdf, { NamedNode, Node, Term, Quad, SomeTerm } from "@ontologies/core";
+import rdf, {
+  NamedNode,
+  Node,
+  Term,
+  Quad,
+  SomeTerm,
+  QuadPosition,
+  Quadruple,
+} from '@ontologies/core';
 import * as ld from "@ontologies/ld";
 import * as rdfx from "@ontologies/rdf";
 import * as rdfs from "@ontologies/rdfs";
@@ -15,10 +23,10 @@ export function seqMemberToNumber(member: NamedNode | undefined): number {
   return Number(member?.value?.split("_")?.pop() || -1);
 }
 
-export function orderedQuadsOfSeq(store: Store, seqIRI: Node): Quad[] {
+export function orderedQuadsOfSeq(store: Store, seqIRI: Node): Quadruple[] {
   return store
     .getResourcePropertyRaw(seqIRI, rdfs.member)
-    .sort((a, b) => seqMemberToNumber(a.predicate) - seqMemberToNumber(b.predicate));
+    .sort((a, b) => seqMemberToNumber(a[QuadPosition.predicate]) - seqMemberToNumber(b[QuadPosition.predicate]));
 }
 
 /**
@@ -27,28 +35,28 @@ export function orderedQuadsOfSeq(store: Store, seqIRI: Node): Quad[] {
  * @see {arrayToList}
  */
 export function seqToArray(store: Store, seqIRI: Node): Term[] {
-  return orderedQuadsOfSeq(store, seqIRI).map((s) => s.object);
+  return orderedQuadsOfSeq(store, seqIRI).map((s) => s[QuadPosition.object]);
 }
 
 /** Retrieve the first quad of the list at {listIRI} */
-export function firstQuadOfSeq(store: Store, seqIRI: Node): Quad | undefined {
+export function firstQuadOfSeq(store: Store, seqIRI: Node): Quadruple | undefined {
   return orderedQuadsOfSeq(store, seqIRI)[0];
 }
 
 /** Retrieve the first term of the list at {listEntry} */
 export function firstTermOfSeq(store: Store, seqIRI: Node): SomeTerm | undefined {
-  return firstQuadOfSeq(store, seqIRI)?.object;
+  return firstQuadOfSeq(store, seqIRI)?.[QuadPosition.object];
 }
 
 /** Retrieve the last quad of the list at {listIRI} */
-export function lastQuadOfSeq(store: Store, seqIRI: Node): Quad | undefined {
+export function lastQuadOfSeq(store: Store, seqIRI: Node): Quadruple | undefined {
   const it = orderedQuadsOfSeq(store, seqIRI);
   return it[it.length - 1];
 }
 
 /** Retrieve the last term of the list at {listIRI} */
 export function lastTermOfSeq(store: Store, seqIRI: Node): SomeTerm | undefined {
-  return lastQuadOfSeq(store, seqIRI)?.object;
+  return lastQuadOfSeq(store, seqIRI)?.[QuadPosition.object];
 }
 
 /**
@@ -115,9 +123,9 @@ export function seqShift(
 
   return [
     rdf.quad(
-      firstMember.subject,
-      firstMember.predicate,
-      firstMember.object,
+      firstMember[QuadPosition.subject],
+      firstMember[QuadPosition.predicate],
+      firstMember[QuadPosition.object],
       method,
     ),
   ];
@@ -137,7 +145,7 @@ export function seqPush(
   value: Term | Term[],
   method: NamedNode = ld.replace,
 ): Quad[] {
-  const upperBound = Number(seqMemberToNumber(lastQuadOfSeq(store, seqIRI)?.predicate));
+  const upperBound = Number(seqMemberToNumber(lastQuadOfSeq(store, seqIRI)?.[QuadPosition.predicate]));
 
   return (Array.isArray(value) ? value : [value])
     .map((term, i) => rdf.quad(

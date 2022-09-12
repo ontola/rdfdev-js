@@ -1,4 +1,4 @@
-import rdf, { Node, Quad, SomeTerm, Term } from "@ontologies/core";
+import rdf, { Node, Quad, QuadPosition, Quadruple, SomeTerm, Term } from '@ontologies/core';
 import * as rdfx from "@ontologies/rdf";
 
 import { Store } from "./types";
@@ -8,7 +8,7 @@ import { Store } from "./types";
  *
  * Will stop if missing links in the list aren't present. Can handle circular lists.
  */
-export function orderedElementsOfList(store: Store, listEntry: Node): Quad[] {
+export function orderedElementsOfList(store: Store, listEntry: Node): Quadruple[] {
   const list = [];
   const nodes = [listEntry];
   let next = listEntry;
@@ -35,28 +35,28 @@ export function orderedElementsOfList(store: Store, listEntry: Node): Quad[] {
  * @see {arrayToList}
  */
 export function listToArray(store: Store, listEntry: Node): Term[] {
-  return orderedElementsOfList(store, listEntry).map((s) => s.object);
+  return orderedElementsOfList(store, listEntry).map((s) => s[QuadPosition.object]);
 }
 
 /** Retrieve the first quad of the list at {listEntry} */
-export function firstQuadOfList(store: Store, listEntry: Node): Quad | undefined {
+export function firstQuadOfList(store: Store, listEntry: Node): Quadruple | undefined {
   return orderedElementsOfList(store, listEntry)[0];
 }
 
 /** Retrieve the first term of the list at {listEntry} */
 export function firstTermOfList(store: Store, listEntry: Node): SomeTerm | undefined {
-  return firstQuadOfList(store, listEntry)?.object;
+  return firstQuadOfList(store, listEntry)?.[QuadPosition.object];
 }
 
 /** Retrieve the last quad of the list at {listEntry} */
-export function lastQuadOfList(store: Store, listEntry: Node): Quad | undefined {
+export function lastQuadOfList(store: Store, listEntry: Node): Quadruple | undefined {
   const it = orderedElementsOfList(store, listEntry);
   return it[it.length - 1];
 }
 
 /** Retrieve the last term of the list at {listEntry} */
 export function lastTermOfList(store: Store, listEntry: Node): SomeTerm | undefined {
-  return lastQuadOfList(store, listEntry)?.object;
+  return lastQuadOfList(store, listEntry)?.[QuadPosition.object];
 }
 
 /**
