@@ -1,6 +1,6 @@
 {
   "name": "@rdfdev/collections",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Toolkit for working with collections, lists, arrays in RDF",
   "scripts": {
     "build": "pika build"
